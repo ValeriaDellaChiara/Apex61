@@ -54,7 +54,7 @@ export function Footer() {
                 <Facebook size={28} />
               </a>
               <a
-                href="https://www.instagram.com/alezac61/"
+                href="https://www.instagram.com/apex61_ridingschool/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/70 hover:text-red-600 transition-colors transform hover:scale-110"
