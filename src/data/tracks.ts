@@ -34,7 +34,7 @@ export const tracks: Track[] = [
     imageUrl: '/magione.png',
     imageWidth: '400px',
     imageHeight: '250px',
-    pricing: { individual: 700, group: 450 }
+    pricing: { individual: 600, group: 350 }
   },
   {
     id: 'pomposa',
@@ -45,7 +45,7 @@ export const tracks: Track[] = [
     imageUrl: '/pomposa.png',
     imageWidth: '400px',
     imageHeight: '250px',
-    pricing: { individual: 850, group: 450 }
+    pricing: { individual: 500, group: 350 }
   },
   {
     id: 'mugello',
@@ -56,7 +56,7 @@ export const tracks: Track[] = [
     imageUrl: '/mgello.jpeg',
     imageWidth: '400px',
     imageHeight: '250px',
-    pricing: { individual: 1000, group: 500 }
+    pricing: { individual: 1000, group: 600 }
   },
   {
     id: 'cremona',
@@ -67,7 +67,7 @@ export const tracks: Track[] = [
     imageUrl: '/cremona.png',
     imageWidth: '400px',
     imageHeight: '250px',
-    pricing: { individual: 450, group: 250 }
+    pricing: { individual: 700, group: 400 }
   },
   {
     id: 'vallelunga',
