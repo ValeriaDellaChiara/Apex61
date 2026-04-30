@@ -42,7 +42,7 @@ CREATE POLICY "Allow public read access to track pricing"
 DELETE FROM track_pricing WHERE track_id IN ('misano', 'magione', 'pomposa', 'mugello', 'cremona','vallelunga');
 
 INSERT INTO track_pricing (track_id, track_name, individual_price, group_price) VALUES
-  ('misano', 'Misano', 850.00, 500.00),
+  ('misano', '', 850.00, 500.00),
   ('magione', 'Magione', 700.00, 450.00),
   ('pomposa', 'Pomposa', 850.00, 450.00),
   ('mugello', 'Mugello', 1000.00, 500.00),

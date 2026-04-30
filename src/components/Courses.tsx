@@ -1,55 +1,15 @@
-import { useState, useEffect } from 'react';
-import { MapPin, Ruler, ExternalLink, Check, Gift } from 'lucide-react';
+import { useState } from 'react';
+import { MapPin, Ruler, ExternalLink, Check } from 'lucide-react';
 import { tracks } from '../data/tracks';
-import { pricingService } from '../services/pricingService';
-import { TrackPricing } from '../types/pricing';
 
 export function Courses() {
   const [selectedTrack, setSelectedTrack] = useState(tracks[0]);
-  const [prices, setPrices] = useState<Map<string, TrackPricing> | null>(null);
-  const [loadingPrices, setLoadingPrices] = useState(true);
-
-  useEffect(() => {
-    const loadPrices = async () => {
-      setLoadingPrices(true);
-      const allPrices = await pricingService.fetchAllPrices();
-      setPrices(allPrices);
-      setLoadingPrices(false);
-    };
-    loadPrices();
-  }, []);
 
   const scrollToContact = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const getTrackPricing = () => {
-    try {
-      // 1. TENTATIVO: Database (Priorità assoluta)
-      if (prices && prices.size > 0) {
-        const dbPricing = pricingService.getPriceByTrackId(selectedTrack.id, prices);
-        
-        // Verifichiamo se il dato dal DB è valido (non è il fallback di base 450/220)
-        // Se il DB restituisce qualcosa, lo usiamo.
-        if (prices.has(selectedTrack.id)) {
-          return dbPricing;
-        }
-      }
-
-      // 2. TENTATIVO: Fallback locale (dal file tracks.ts)
-      if (selectedTrack.pricing) {
-        return selectedTrack.pricing;
-      }
-
-      // 3. TENTATIVO: Fallback estremo (prezzi fissi di sicurezza)
-      return { individual: 450, group: 220 };
-    } catch (error) {
-      console.error('Errore durante il calcolo dei prezzi:', error);
-      return selectedTrack.pricing || { individual: 450, group: 220 };
-    }
-  };
-
-  const currentPricing = getTrackPricing();
+  const currentPricing = selectedTrack.pricing || { individual: 450, group: 220 };
 
   const courseIncludes = [
     'Briefing iniziale',
